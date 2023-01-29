@@ -1,5 +1,5 @@
 dash==2.7.0
-dash_mantine_components
+dash-mantine-components
 pandas
 gunicorn
 pandas
