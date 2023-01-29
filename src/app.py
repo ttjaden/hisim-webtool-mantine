@@ -1,21 +1,27 @@
-'''
- # @ Create Time: 2023-01-29 21:05:31.038994
-'''
-
 import dash_mantine_components as dmc
-from dash import Dash
+from dash import Dash, html
+import dash
 
-app = Dash(__name__, title="hisim-webtool-mantine")
+app = Dash(__name__, title="HiSim Webtool", use_pages=True)
 
-# Declare server for Heroku deployment. Needed for Procfile.
+# Declare server for Heroku or Render deployment. Needed for Procfile.
 server = app.server
 
-app.layout = dmc.Alert(
-    [
-        "Hi from Dash Mantine Components. You can create some great looking dashboards using me!"
-    ],
-    title="Welcome!",
-    color="violet",
+app.layout = html.Div([
+    dmc.Header(
+        height=60,
+        children=[dmc.Image(
+                  src="/assets/img/banner.svg",
+                  alt="Logo",
+                  width=150
+        )], 
+        style={"backgroundColor": "#FFFFFF"}
+    ),
+    dmc.Center(
+    children=[
+        dash.page_container
+    ])
+    ]
 )
 
 if __name__ == "__main__":
