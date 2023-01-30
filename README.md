@@ -1,13 +1,28 @@
-# Dash Mantine Template: hisim-webtool-mantine
+# HiSim-Webtool
 
-Created on 2023-01-29 21:05:31.028203
+Implementation of a graphical user interface for hisim simulations coupled with utsp, building database and weather provider.
 
-Welcome to your [Plotly Dash](https://plotly.com/dash/) App! This is a template for your hisim-webtool-mantine app.
+## Development
 
-See the [Dash Documentation](https://dash.plotly.com/introduction) for more information on how to get your app up and running.
+Developed as [Plotly Dash](https://plotly.com/dash/) App! See the [Dash Documentation](https://dash.plotly.com/introduction) for more information. Styling with [Dash Mantine](https://www.dash-mantine-components.com/).
 
-See [Dash Mantine](https://www.dash-mantine-components.com/) for more information on Dash Mantine.
+### Prepare environment
+Download or clone repository:
 
-## Running the App
+- `git clone https://github.com/ttjaden/hisim-webtool-mantine.git`
+
+Create the environment:
+
+- `conda env create --name hisim-webtool-mantine python=3.10`
+
+Activate enviroment
+
+- `conda activate hisim-webtool-mantine`
+
+Install dependencies with pip
+
+- `pip install -r requirements.txt`
+
+### Running the App
 
 Run `src/app.py` and navigate to http://127.0.0.1:8050/ in your browser.
