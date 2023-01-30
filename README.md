@@ -13,11 +13,11 @@ Download or clone repository:
 
 Create the environment:
 
-- `conda env create --name hisim-webtool-mantine python=3.10`
+- `conda create -n hisim-webtool python=3.10`
 
 Activate enviroment
 
-- `conda activate hisim-webtool-mantine`
+- `conda activate hisim-webtool`
 
 Install dependencies with pip
 

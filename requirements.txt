@@ -1,6 +1,9 @@
-dash==2.7.0
-dash-mantine-components
-pandas
+dash
+dash_bootstrap_components
+dash_iconify
+dash_mantine_components
+geopy
 gunicorn
 pandas
-dash-tools
+plotly_express
+pytest

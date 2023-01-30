@@ -7,28 +7,30 @@ dash.register_page(__name__,
                    title='Start',
                    name='home')
 
-style = {
-    "marginTop": 20,
-    "marginBottom": 20,
-}
-
-def funtion():
+def function():
     """
     Generates user input forms for upload screen
     """
-
-    value1 = dmc.Text('Text 1')
-        
+    value1 = dmc.Text('Text 1')  
     value2 = dmc.Text('Text 2')
-
     return dmc.Stack([value1, value2],align='stretch')
 
-layout =  html.Div([
-            dmc.Container([
-            dmc.Title(f"HiSim Webtool", order=2),
-            dmc.Title(f"Digital Energy Consulting", order=5),
-            dmc.Space(h=20),
-            # Content form function
-            funtion(),
-            ],style=style)
-])
+layout =  html.Div(
+    children=[
+        dmc.Grid(
+            children=[
+                dmc.Col(span=12,
+                children=[
+                    dmc.Container([
+                        dmc.Title(f"HiSim Webtool", align='center', order=1),
+                        dmc.Title(f"Digital Energy Consulting", align='center', order=5),
+                        dmc.Space(h=20),
+                        # Content form function
+                        function(),]
+                        )
+                    ]
+                )
+            ]
+        )
+    ],
+)
