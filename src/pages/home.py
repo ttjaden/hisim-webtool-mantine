@@ -5,7 +5,7 @@ from dash_iconify import DashIconify
 
 dash.register_page(__name__,
                    path='/',
-                   title='Start',
+                   title='HiSim | Start',
                    name='home')
 
 layout =  html.Div(
@@ -27,13 +27,14 @@ layout =  html.Div(
                             style={"width": 400},
                             radius='lg'),
                         dmc.Space(h=10),
-                        dmc.Center(dmc.Button('Let the magic happen',
+                        dmc.Center(dmc.Anchor(dmc.Button('Show me the results',
                             id='first-calculation',
                             n_clicks=0,
                             type='button',
                             color='gray',
                             size='md',
-                            leftIcon=DashIconify(icon='material-symbols:settings')))
+                            leftIcon=DashIconify(icon='material-symbols:settings')),
+                            href='/results'))
                         ]
                         )
                     ]

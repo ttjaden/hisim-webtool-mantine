@@ -3,7 +3,10 @@ import dash
 from dash_iconify import DashIconify
 from dash import html
 
-dash.register_page(__name__)
+dash.register_page(__name__,
+                   path='/about',
+                   title='HiSim | About',
+                   name='about')
 
 layout = html.Div(
     children=[

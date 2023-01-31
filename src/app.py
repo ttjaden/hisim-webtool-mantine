@@ -11,31 +11,42 @@ server = app.server
 ######################################################################
 # Header and Footer ##################################################
 ######################################################################
-header = dmc.Header(height=60,style={"backgroundColor": "#FFFFFF"},children=[
+header = dmc.Header(height=45,
+                    style={"backgroundColor": "#033E6C"},
+                    fixed=True,
+                    children=[
     dmc.Grid(
         children=[
-            dmc.Col(span=4,style={"textAlign": "left"},children=
-                [dmc.Anchor(dmc.Image(src="/assets/img/banner.svg",alt="Logo",width=150),href='/')]),
-            dmc.Col(span=4,style={"textAlign": "center"},children=
-                [dmc.Anchor(dmc.Button('About', color='gray', variant='subtle', size='md', leftIcon=DashIconify(icon='feather:info')),href='/about')]),
-            dmc.Col(span=4,style={"textAlign": "right"},children=
-                [dmc.Burger(id='burger-button', opened=False, size='lg')])
+            dmc.Col(span=6,style={"textAlign": "left"},children=
+                [dmc.Anchor(dmc.Image(src="/assets/img/fzj-white.svg",alt="Logo",width=150),href='/')]),
+            dmc.Col(span=6,style={"textAlign": "right"},children=
+                [dmc.Burger(id='burger-button', opened=False, size='lg', color='white')])
         ]
 )]
 )
 
 footer = dmc.Footer(
-    height=35,
+    height=30,
     fixed=True,
-    children=[dmc.Anchor(dmc.Text("FZ Jülich GmbH | Impressum",
-              align="center",
-              color='white'),
-              href='https://www.fz-juelich.de/de/impressum',
-              target='_blank',
-              variant='text')
-              ],
-    style={"backgroundColor": "#033E6C"},
-)
+    children=[dmc.Grid(children=[
+        dmc.Col(span=5,
+                style={"textAlign": "right"},
+                children=
+                    [dmc.Anchor("Impressum",
+                    href='https://www.fz-juelich.de/de/impressum',
+                    target='_blank',
+                    variant='text')]),
+        dmc.Col(span=2,
+                style={"textAlign": "center"},
+                children=['|']),
+        dmc.Col(span=5,
+                style={"textAlign": "left"},
+                children=
+                    [dmc.Anchor("About",
+                    href='/about',
+                    variant='text')])
+    ])],
+    style={"backgroundColor": "#033E6C", 'color': 'white'})
 
 ######################################################################
 # App layout #########################################################
@@ -44,17 +55,21 @@ footer = dmc.Footer(
 hidden_div = html.Div(id="hidden-div", style={"display": "none"})
 
 app.layout = html.Div([
-    hidden_div,
-    header,
-    dmc.Container(
-        dmc.Center(style={"height": 500, "width": "100%"},
-        children=[
-            dash.page_container
-        ]),
-    ),
-    footer,
-    ]
-)
+    dmc.MantineProvider(
+        withGlobalStyles=True,
+        theme={'colorScheme': 'light'},
+        children=[    
+            header,
+            dmc.Container(
+                dmc.Center(style={"height": 500, "width": "100%"},
+                children=[
+                    dash.page_container
+                ]),
+            ),
+            footer,
+        ]
+    )
+])
 
 if __name__ == "__main__":
     app.run_server(debug=True)
