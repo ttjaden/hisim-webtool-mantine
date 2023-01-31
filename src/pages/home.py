@@ -18,14 +18,18 @@ layout =  html.Div(
                         dmc.Title(f"HiSim Webtool", align='center', order=1),
                         dmc.Title(f"Digital Energy Consulting", align='center', order=5),
                         dmc.Space(h=40),
-                        dmc.Text("Please type in your building location", align='center'),
-                        dmc.Space(h=10),
-                        dmc.TextInput(
-                            placeholder="Example Street No. 1, 12345 Berlin",
-                            icon=DashIconify(icon="material-symbols:not-listed-location-outline"),
+                        dmc.MultiSelect(
+                            data=['Avenue 1, 67890 Munich','Heerweg 26, 26629 Aurich','Example Street No.1, 12345 Berlin'],
+                            id='selected-location',
+                            label="Building Location",
+                            description='Please type in Street with number, postal code and city',
+                            searchable=True,
+                            clearable=True,
+                            maxSelectedValues=1,
+                            icon=DashIconify(icon="material-symbols:not-listed-location-outline", width=20),
                             size='md',
                             style={"width": 400},
-                            radius='lg'),
+                            radius='md'),
                         dmc.Space(h=10),
                         dmc.Center(dmc.Anchor(dmc.Button('Show me the results',
                             id='first-calculation',
@@ -33,6 +37,7 @@ layout =  html.Div(
                             type='button',
                             color='gray',
                             size='md',
+                            radius='md',
                             leftIcon=DashIconify(icon='material-symbols:settings')),
                             href='/results'))
                         ]

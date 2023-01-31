@@ -1,5 +1,5 @@
 import dash_mantine_components as dmc
-from dash import Dash, html, Input, Output, ClientsideFunction
+from dash import Dash, html, Input, Output, callback, ClientsideFunction
 from dash_iconify import DashIconify
 import dash
 
@@ -20,7 +20,7 @@ header = dmc.Header(height=45,
             dmc.Col(span=6,style={"textAlign": "left"},children=
                 [dmc.Anchor(dmc.Image(src="/assets/img/fzj-white.svg",alt="Logo",width=150),href='/')]),
             dmc.Col(span=6,style={"textAlign": "right"},children=
-                [dmc.Burger(id='burger-button', opened=False, size='lg', color='white')])
+                [dmc.Burger(id='burger-button', size='lg', color='white')])
         ]
 )]
 )
@@ -60,11 +60,12 @@ app.layout = html.Div([
         theme={'colorScheme': 'light'},
         children=[    
             header,
-            dmc.Container(
-                dmc.Center(style={"height": 500, "width": "100%"},
+            dmc.Container(p=100,
+                children=[
+                dmc.Center(style={"width": "100%"},
                 children=[
                     dash.page_container
-                ]),
+                ])],
             ),
             footer,
         ]
